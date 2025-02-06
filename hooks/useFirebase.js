@@ -31,6 +31,7 @@ export default function useFirebase(props = {}) {
 
   useEffect(() => {
     const authListener = onAuthStateChanged(auth, (user) => {
+      console.log("user", user);
       if (user) {
         setUser(user);
       } else {

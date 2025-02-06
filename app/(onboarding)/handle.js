@@ -8,7 +8,8 @@ import {
 } from "react-native";
 
 import { ImageBackground } from "expo-image";
-import { useDebounce } from "@uidotdev/usehooks";
+// import { useDebounce } from "@uidotdev/usehooks";
+import useDebounce from "@hooks/useDebounce";
 import { SplashScreen, router } from "expo-router";
 
 import tw from "@utils/tailwind";

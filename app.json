@@ -3,7 +3,8 @@
     "name": "pager.app",
     "slug": "pager",
     "scheme": "pager",
-    "version": "1.0.1",
+    "version": "1.0.5",
+    "runtimeVersion": "1.0.5",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "dark",
@@ -12,9 +13,11 @@
       "resizeMode": "contain",
       "backgroundColor": "#181818"
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
-      "buildNumber": "14",
+      "buildNumber": "21",
       "supportsTablet": false,
       "bundleIdentifier": "app.getpager",
       "config": {
@@ -22,7 +25,11 @@
       },
       "infoPlist": {
         "NSContactsUsageDescription": "To bring on friends you want to use Pager with"
-      }
+      },
+      "associatedDomains": [
+        "applinks:r9y9g.app.link",
+        "applinks:pager-web-app.vercel.app"
+      ]
     },
     "android": {
       "adaptiveIcon": {
@@ -32,6 +39,8 @@
       "package": "app.getpager",
       "versionCode": 1,
       "permissions": [
+        "android.permission.READ_CONTACTS",
+        "android.permission.WRITE_CONTACTS",
         "android.permission.READ_CONTACTS",
         "android.permission.WRITE_CONTACTS"
       ]
@@ -57,6 +66,13 @@
         {
           "username": "pingrishabh"
         }
+      ],
+      [
+        "@config-plugins/react-native-branch",
+        {
+          "apiKey": "key_live_ozgWSC2clpLC2UnzZ9t56fkoyBkLX7P7",
+          "iosAppDomain": "r9y9g.app.link"
+        }
       ]
     ],
     "extra": {
@@ -64,16 +80,13 @@
         "origin": false
       },
       "eas": {
-        "projectId": "cfcac9f8-813f-4e5c-96ff-1d6caef5c302"
+        "projectId": "0289a608-aa75-46fd-991e-283b5b485059"
       }
     },
-    "owner": "pingrishabh",
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
+    "owner": "datetech",
     "updates": {
       "fallbackToCacheTimeout": 15000,
-      "url": "https://u.expo.dev/cfcac9f8-813f-4e5c-96ff-1d6caef5c302"
+      "url": "https://u.expo.dev/0289a608-aa75-46fd-991e-283b5b485059"
     }
   }
 }
