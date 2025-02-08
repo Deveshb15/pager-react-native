@@ -89,6 +89,8 @@ PODS:
     - react-native-branch
   - ExpoBlur (12.4.1):
     - ExpoModulesCore
+  - ExpoClipboard (4.3.1):
+    - ExpoModulesCore
   - ExpoDevice (5.4.0):
     - ExpoModulesCore
   - ExpoHead (0.0.14):
@@ -770,6 +772,7 @@ DEPENDENCIES:
   - expo-dev-menu-interface (from `../node_modules/expo-dev-menu-interface/ios`)
   - "ExpoAdapterBranch (from `../node_modules/@config-plugins/react-native-branch/ios`)"
   - ExpoBlur (from `../node_modules/expo-blur/ios`)
+  - ExpoClipboard (from `../node_modules/expo-clipboard/ios`)
   - ExpoDevice (from `../node_modules/expo-device/ios`)
   - ExpoHead (from `../node_modules/expo-head/ios`)
   - ExpoImage (from `../node_modules/expo-image/ios`)
@@ -904,6 +907,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@config-plugins/react-native-branch/ios"
   ExpoBlur:
     :path: "../node_modules/expo-blur/ios"
+  ExpoClipboard:
+    :path: "../node_modules/expo-clipboard/ios"
   ExpoDevice:
     :path: "../node_modules/expo-device/ios"
   ExpoHead:
@@ -1050,6 +1055,7 @@ SPEC CHECKSUMS:
   expo-dev-menu-interface: bda969497e73dadc2663c479e0fa726ca79a306e
   ExpoAdapterBranch: 5f8f8c362fe0c2da9e2d0ae86fbe0a8809c3ecd6
   ExpoBlur: a2c90bdfa4ff9f459cdb0f83191bddf020e3e2db
+  ExpoClipboard: 695f274f8e028cd113837f917da40c76850877eb
   ExpoDevice: 1c1b0c9cad96c292c1de73948649cfd654b2b3c0
   ExpoHead: 82eda8e633ca25980d8ec46ba793a3df4e2b16fc
   ExpoImage: 723efcb8d9377ae8645a6f7a1579305f5b80a76f

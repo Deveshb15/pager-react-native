@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { AppState, LogBox, Text, Alert } from "react-native";
+import { AppState, LogBox, Text, Alert, Platform } from "react-native";
 
 import { Stack } from "expo-router";
 import { BlurView } from "expo-blur";
@@ -20,6 +20,7 @@ import AppContext from "@utils/context";
 import constants from "@utils/constants";
 import * as Linking from "expo-linking";
 import branch from "react-native-branch";
+import * as Clipboard from "expo-clipboard";
 
 LogBox.ignoreAllLogs();
 const queryClient = new QueryClient();
@@ -101,6 +102,7 @@ export default function Layout() {
         // native layer before JS loaded.
         console.log("Branch will open " + uri);
         Alert.alert("Branch will open " + uri);
+        Alert.alert("Branch will open " + cachedInitialEvent);
       },
       onOpenComplete: ({ error, params, uri }) => {
         if (error) {
@@ -109,12 +111,19 @@ export default function Layout() {
           return;
         }
 
-        console.log("Branch opened " + uri);
-        Alert.alert("Branch opened " + uri);
+        console.log("Branch opened 1" + uri);
+        Alert.alert("Branch opened 1" + uri);
         // handle params
         if (params["+clicked_branch_link"]) {
-          console.log("Branch opened " + uri);
-          Alert.alert("Branch opened " + uri);
+          console.log("Branch opened 2" + uri);
+          Alert.alert("Branch opened 2" + uri);
+        }
+
+        if (params) {
+          if (params.$deeplink_path) {
+            console.log("Branch opened 3" + uri);
+            Alert.alert("Branch opened 3" + uri);
+          }
         }
       },
     });
@@ -129,7 +138,7 @@ export default function Layout() {
       }
       if (!params["+clicked_branch_link"] && !params["+non_branch_link"]) {
         // this is one of those responses you can ignore
-        Alert("Branch ignored");
+        Alert.alert("Branch ignored");
         return;
       }
       // console.log('params non_branch_link', params?.['+non_branch_link']);
@@ -137,6 +146,18 @@ export default function Layout() {
       onHandleNavigate(params, uri);
     });
     return () => unsubscribe();
+  }, []);
+
+  useEffect(() => {
+    const checkClipboardForLink = async () => {
+      if (Platform.OS === "ios") {
+        const clipboardContent = await Clipboard.getStringAsync();
+        console.log("Deferred deep link:", clipboardContent);
+        Alert.alert("Deferred deep link: " + clipboardContent);
+      }
+    };
+
+    checkClipboardForLink();
   }, []);
 
   const url = Linking.useURL();
